@@ -1,0 +1,89 @@
+
+
+/*.editorBlock, .previewWrap  {*/
+/*    margin: 1.125rem auto;*/
+/*}*/
+
+/*.editorBlock {*/
+/*    max-width: 800px;*/
+/*}*/
+
+/*.toolbar {*/
+/*    width: 99%;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    padding: 6px;*/
+/*    font-family: "Russo One";*/
+/*    background-color: #578f65;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*.fa {*/
+/*    font-size: 1.25rem;*/
+/*}*/
+
+/*.fa-free-code-camp {*/
+/*    margin-right: 5px;*/
+/*}*/
+
+/*.fa-arrows-alt, .fa-compress {*/
+/*    margin-right: 5px;*/
+/*    margin-left: auto;*/
+/*}*/
+
+/*.fa-arrows-alt:hover, .fa-compress:hover {*/
+/*   color: #beb8c3;*/
+/*}*/
+
+/*textarea, #preview {*/
+/*    width: 99%;*/
+/*    font-size: 0.875rem;*/
+/*    padding-top: 5px;*/
+/*    padding-left: 5px;*/
+/*    outline: none;*/
+/*    background-color: #c9e9d1;*/
+/*    resize: vertical;*/
+/*    min-height: 250px;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*#editor, #preview, .toolbar {*/
+/*    border: solid 1px #578f65;*/
+/*    box-shadow: 1px 1px 10px 2px #2f5238;*/
+/*}*/
+
+/*.previewWrap {*/
+/*    max-width: 1200px;*/
+/*}*/
+
+/*#preview {*/
+/*    width: 99%;*/
+/*    overflow-wrap: break-word;*/
+/*    line-height: 1.5;*/
+/*    font-weight: 400;*/
+/*    padding: 0 1rem;*/
+/*}*/
+
+/*.maximize {*/
+/*    min-height: 95vh;*/
+/*    resize: none;*/
+/*}*/
+
+/*table {*/
+/*    border-collapse: collapse;*/
+/*}*/
+
+/*th, td {*/
+/*    padding: 3px;*/
+/*    border: solid 2px #111704;*/
+/*}*/
+
+/*h1, h2, h3 {*/
+/*    border-bottom: 2px solid #111704FF;*/
+/*}*/
+
+/*img {*/
+/*    max-width: 70%;*/
+/*    overflow-clip-margin: content-box;*/
+/*    overflow: clip;*/
+/*}*/
