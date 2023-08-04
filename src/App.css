@@ -1,4 +1,40 @@
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
+#drum-machine {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    border: 2px solid #45b933;
+}
+
+h1 {
+    font-size: 100px;
+    margin: 0 auto;
+    font-family: "Original Surfer";
+}
+
+.drum-pads {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+#display {
+    margin: 20px auto;
+    width: 300px;
+    background-color: #c2c5d0;
+    color: #a91919;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    font-family: "Original Surfer";
+    padding: 20px;
+}
 
 /*.editorBlock, .previewWrap  {*/
 /*    margin: 1.125rem auto;*/
