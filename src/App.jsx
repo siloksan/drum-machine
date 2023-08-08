@@ -1,81 +1,71 @@
-import './App.css';
-import React, {useEffect} from "react";
-import Button from 'react-bootstrap/Button';
-import {Form} from "react-bootstrap";
+import React, { useEffect, useReducer } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {buttonStyle} from "./bootstrapStyles";
-import {pads} from "./pads";
+import './styles/css/App.css';
+import BlockPads from "./component/BlockPads";
+import DrumController from "./component/DrumController";
+import {heaterKit, SmoothPianoKit} from "./utils/bankOfSounds";
+import modeReducer from "./reducer/reducer";
 
-const App = (props) => {
+const initialMode = { power: true, bank: heaterKit, display: 'Screen'}
+
+const App = () => {
+
+	const [mode, dispatch] = useReducer(modeReducer, initialMode)
+	const power = mode.power
 
 	const handleKeyDown = (event) => {
+		if (!power) return;
 		const slap = document.getElementById(event.code.slice(-1))
 		if (slap === null) return;
 		slap.currentTime = 0
 		slap.play()
+		slap.parentElement.style.background = 'linear-gradient(90deg, #ffc107, #a91919)'
+		setTimeout(() => {
+			slap.parentElement.style.background = 'linear-gradient(90deg, #a91919, #ffc107)'
+		}, 100)
+	}
+
+	const changeBank = (boolean) => {
+		if (!power) return
+		if (boolean) {
+			dispatch({
+				type: 'BANK',
+				bank: heaterKit,
+				display: heaterKit.title
+			})
+		} else {
+			dispatch({
+				type: 'BANK',
+				bank: SmoothPianoKit,
+				display: SmoothPianoKit.title
+			})
+		}
+	}
+
+	const turnOnOrOff = (boolean) => {
+		dispatch({
+			type: 'TURN_ON',
+			power: boolean
+		})
 	}
 
 	useEffect(() => {
 		document.addEventListener('keydown', handleKeyDown,
-			[])
-	})
+		)
+	}, [mode, handleKeyDown])
 
 	return (
 		<div id="drum-machine">
-			<h1>Drum Machine</h1>
-			<div id="display">Screen</div>
-			<BlockPads/>
-			<section id="drum-controller">
-				<Form>
-					<Form.Check // prettier-ignore
-						type="switch"
-						id="custom-switch"
-						label="Check this switch"
-					/>
-					<Form.Check // prettier-ignore
-						disabled
-						type="switch"
-						label="disabled switch"
-						id="disabled-custom-switch"
-					/>
-				</Form>
-
-			</section>
-
+			<h1 className="title">Drum Machine</h1>
+			<DrumController
+				power={power}
+				turnOnOrOff={turnOnOrOff}
+				display={mode.display}
+				changeBank={changeBank}
+			/>
+			<BlockPads mode={mode} />
 		</div>
 	);
 }
 
-const BlockPads = (props) => {
-
-	const padsList = pads.map((pad) => <Pad key={pad.name} pad={pad}/>)
-	return (
-		<section className="drum-pads">
-			{padsList}
-		</section>
-	)
-
-}
-
-const Pad = (props) => {
-
-	const handleClick = (event, additional_param) => {
-		console.log(event);
-		const slap = document.getElementById(additional_param)
-		slap.currentTime = 0
-		slap.play()
-
-	}
-
-	const pad = props.pad
-
-	return (
-		<Button key={pad.name}
-		        variant="primary"
-		        style={buttonStyle}
-		        onClick={(e) => handleClick(e, pad.key)}>
-			<audio id={pad.key} src={pad.src}></audio>
-			{pad.key}</Button>
-	)
-}
 export default App

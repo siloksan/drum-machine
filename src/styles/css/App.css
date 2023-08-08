@@ -1,0 +1,107 @@
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#drum-machine {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    border: 5px solid #30422b;
+    padding: 30px;
+    background-color: #5fa25c;
+}
+
+.title {
+    font-size: 50px;
+    margin: 0 auto;
+    font-family: "Original Surfer";
+    padding-bottom: 30px;
+}
+
+.drum-pads {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    min-width: 340px;
+    min-height: 360px;
+}
+
+#drum-controller {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+#display {
+    margin: 20px;
+    min-width: 250px;
+    background-color: #c2c5d0;
+    color: #a91919;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    font-family: "Original Surfer";
+    padding: 10px;
+}
+
+.block-power {
+    position: relative;
+    padding-left: 75px;
+}
+
+.power {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 70px;
+    width: 70px;
+    -webkit-appearance: none;
+    box-shadow: -3px -3px 6px rgba(0,0,0,0.3),
+    3px 3px 6px rgba(70, 70, 70, 0.12);
+    transform: translate(-50%, -50%);
+    border-radius: 50%; /*Makes the circle*/
+    border: 10px solid #5fa25c;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.power::after {
+    font-family: FontAwesome;
+    content: "\f011"; /*ON/OFF icon Unicode*/
+    color: #7a7a7a;
+    font-size: 30px;
+}
+
+.power:checked {
+    box-shadow: -3px -3px 6px rgba(0,0,0,0.3),
+    3px 3px 6px rgba(70, 70, 70, 0.12),
+    inset -3px -3px 6px rgba(0,0,0,0.3),
+    inset 3px 3px 6px rgba(70, 70, 70, 0.12);
+}
+
+.power:checked::after {
+    color: #103eb4;
+}
+
+.form-check-input:checked {
+    background-color: #a91919;
+    border-color: #a91919;
+}
+
+.controller {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pad {
+    background: linear-gradient(90deg, #a91919, #ffc107);
+}

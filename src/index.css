@@ -20,3 +20,7 @@ body {
   url('./fonts/OriginalSurfer-Regular.ttf') format('truetype');
   font-weight: bold;
 }
+
+p {
+  margin: 0;
+}
