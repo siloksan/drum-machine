@@ -5,6 +5,8 @@ import BlockPads from "./component/BlockPads";
 import DrumController from "./component/DrumController";
 import {heaterKit, SmoothPianoKit} from "./utils/bankOfSounds";
 import modeReducer from "./reducer/reducer";
+import Form from 'react-bootstrap/Form';
+import {rangeStyles, rangeTextStyles} from "./styles/bootstrapStyles";
 
 const initialMode = { power: false, bank: heaterKit, display: 'Screen', chosenBank: true}
 
@@ -22,6 +24,14 @@ const App = () => {
 		setTimeout(() => {
 			slap.parentElement.style.background = 'linear-gradient(90deg, #a91919, #ffc107)'
 		}, 100)
+		renderDisplay(slap.parentElement.id)
+	}
+
+	const renderDisplay = (text) => {
+		dispatch({
+			type: 'DISPLAY',
+			display: text
+		})
 	}
 
 	const changeBank = (boolean) => {
@@ -54,7 +64,7 @@ const App = () => {
 	useEffect(() => {
 		document.addEventListener('keydown', handleKeyDown,
 		)
-	}, [mode])
+	}, [])
 
 	return (
 		<div id="drum-machine">
@@ -66,7 +76,11 @@ const App = () => {
 				changeBank={changeBank}
 				chosenBank={mode.chosenBank}
 			/>
-			<BlockPads mode={mode} />
+			<BlockPads mode={mode} renderDisplay={renderDisplay}/>
+			<div className="volume">
+				<Form.Label style={rangeTextStyles}>Volume</Form.Label>
+				<Form.Range style={rangeStyles}/>
+			</div>
 		</div>
 	);
 }

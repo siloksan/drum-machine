@@ -5,3 +5,14 @@ export const buttonStyle = {
 	fontFamily: "Original Surfer",
 	fontSize: 30
 }
+
+export const rangeTextStyles = {
+	textAlign: 'center',
+	fontFamily: "Original Surfer",
+	fontSize: 30
+}
+
+export const rangeStyles = {
+
+	width: 200
+}

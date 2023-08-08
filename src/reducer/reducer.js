@@ -5,7 +5,7 @@ const BANK = 'BANK'
 const modeReducer = (state, action) => {
 	switch (action.type) {
 		case TURN_ON: {
-			return Object.assign({}, state, { power: action.power })
+			return Object.assign({}, state, { power: action.power, display: '' })
 		}
 		case BANK: {
 			return Object.assign({}, state, { bank: action.bank, display: action.display, chosenBank: action.chosenBank })

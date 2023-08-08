@@ -4,7 +4,7 @@ import React from "react";
 const BlockPads = (props) => {
 	const { power, bank } = props.mode
 
-	const padsList = bank.bankOfSounds.map((pad) => <Pad key={pad.name} pad={pad} power={power} />)
+	const padsList = bank.bankOfSounds.map((pad) => <Pad key={pad.name} pad={pad} power={power} renderDisplay={props.renderDisplay}/>)
 	return (
 		<section className="drum-pads">
 			{padsList}
