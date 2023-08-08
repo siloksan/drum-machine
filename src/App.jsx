@@ -6,7 +6,7 @@ import DrumController from "./component/DrumController";
 import {heaterKit, SmoothPianoKit} from "./utils/bankOfSounds";
 import modeReducer from "./reducer/reducer";
 
-const initialMode = { power: true, bank: heaterKit, display: 'Screen'}
+const initialMode = { power: false, bank: heaterKit, display: 'Screen', chosenBank: true}
 
 const App = () => {
 
@@ -14,7 +14,6 @@ const App = () => {
 	const power = mode.power
 
 	const handleKeyDown = (event) => {
-		if (!power) return;
 		const slap = document.getElementById(event.code.slice(-1))
 		if (slap === null) return;
 		slap.currentTime = 0
@@ -27,17 +26,20 @@ const App = () => {
 
 	const changeBank = (boolean) => {
 		if (!power) return
+		console.log(boolean);
 		if (boolean) {
 			dispatch({
 				type: 'BANK',
 				bank: heaterKit,
-				display: heaterKit.title
+				display: heaterKit.title,
+				chosenBank: boolean
 			})
 		} else {
 			dispatch({
 				type: 'BANK',
 				bank: SmoothPianoKit,
-				display: SmoothPianoKit.title
+				display: SmoothPianoKit.title,
+				chosenBank: boolean
 			})
 		}
 	}
@@ -52,7 +54,7 @@ const App = () => {
 	useEffect(() => {
 		document.addEventListener('keydown', handleKeyDown,
 		)
-	}, [mode, handleKeyDown])
+	}, [mode])
 
 	return (
 		<div id="drum-machine">
@@ -62,6 +64,7 @@ const App = () => {
 				turnOnOrOff={turnOnOrOff}
 				display={mode.display}
 				changeBank={changeBank}
+				chosenBank={mode.chosenBank}
 			/>
 			<BlockPads mode={mode} />
 		</div>

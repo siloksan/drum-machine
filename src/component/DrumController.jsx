@@ -1,13 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Form} from "react-bootstrap";
 
-const DrumController = ({ display, changeBank, turnOnOrOff, power }) => {
-
-	const [mode, setMode] = useState(true )
+const DrumController = ({ display, changeBank, turnOnOrOff, power, chosenBank }) => {
 
 	const handleCheckbox = () => {
-		setMode(!mode)
-		changeBank(mode)
+		changeBank(!chosenBank)
 	}
 
 	const powerOnOrOf = () => {

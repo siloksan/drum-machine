@@ -8,7 +8,7 @@ const modeReducer = (state, action) => {
 			return Object.assign({}, state, { power: action.power })
 		}
 		case BANK: {
-			return Object.assign({}, state, { bank: action.bank }, { display: action.display })
+			return Object.assign({}, state, { bank: action.bank, display: action.display, chosenBank: action.chosenBank })
 		}
 		case DISPLAY: {
 			return Object.assign({}, state, { display: action.display })

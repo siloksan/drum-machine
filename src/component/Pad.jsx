@@ -22,8 +22,8 @@ const Pad = ({power, pad}) => {
 		        className="pad"
 		        key={pad.name}
 		        variant="primary"
-		        onClick={(e) => handleClick(e, pad.key)}>
-			<audio id={pad.key} src={pad.src}></audio>
+		        onClick={(e) => handleClick(e, pad.key)}
+		>{power && <audio id={pad.key} src={pad.src}></audio>}
 			{pad.key}</Button>
 	)
 }
