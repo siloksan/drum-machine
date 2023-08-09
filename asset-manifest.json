@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7991dfef.css",
+    "main.js": "/static/js/main.f44d24b6.js",
+    "static/js/787.e9480b1f.chunk.js": "/static/js/787.e9480b1f.chunk.js",
+    "static/media/OriginalSurfer-Regular.ttf": "/static/media/OriginalSurfer-Regular.64fdc94018a5804cb5b2.ttf",
+    "static/media/RussoOne-Regular.ttf": "/static/media/RussoOne-Regular.b2f5b287ccb8fd446eae.ttf",
+    "index.html": "/index.html",
+    "main.7991dfef.css.map": "/static/css/main.7991dfef.css.map",
+    "main.f44d24b6.js.map": "/static/js/main.f44d24b6.js.map",
+    "787.e9480b1f.chunk.js.map": "/static/js/787.e9480b1f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7991dfef.css",
+    "static/js/main.f44d24b6.js"
+  ]
+}
