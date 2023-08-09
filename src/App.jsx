@@ -64,7 +64,7 @@ const App = () => {
 		dispatch({
 			type: 'VOLUME',
 			volume: ev.target.value,
-			display: ev.target.value
+			display: Math.floor(ev.target.value * 100)
 		})
 	}
 

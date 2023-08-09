@@ -20,7 +20,7 @@ const Pad = ({power, pad, renderDisplay, volume}) => {
 
 	return (
 		<Button style={buttonStyle}
-		        className="pad"
+		        className="drum-pad"
 		        key={pad.name}
 				id={pad.name}
 		        variant="primary"
