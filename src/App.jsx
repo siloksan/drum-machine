@@ -5,10 +5,15 @@ import BlockPads from "./component/BlockPads";
 import DrumController from "./component/DrumController";
 import {heaterKit, SmoothPianoKit} from "./utils/bankOfSounds";
 import modeReducer from "./reducer/reducer";
-import Form from 'react-bootstrap/Form';
-import {rangeStyles, rangeTextStyles} from "./styles/bootstrapStyles";
+import Volume from "./component/Volume";
 
-const initialMode = { power: false, bank: heaterKit, display: 'Screen', chosenBank: true}
+const initialMode = {
+	power: false,
+	bank: heaterKit,
+	display: 'Screen',
+	chosenBank: true,
+	volume: 0.5
+}
 
 const App = () => {
 
@@ -18,13 +23,7 @@ const App = () => {
 	const handleKeyDown = (event) => {
 		const slap = document.getElementById(event.code.slice(-1))
 		if (slap === null) return;
-		slap.currentTime = 0
-		slap.play()
-		slap.parentElement.style.background = 'linear-gradient(90deg, #ffc107, #a91919)'
-		setTimeout(() => {
-			slap.parentElement.style.background = 'linear-gradient(90deg, #a91919, #ffc107)'
-		}, 100)
-		renderDisplay(slap.parentElement.id)
+		slap.parentElement.click()
 	}
 
 	const renderDisplay = (text) => {
@@ -61,6 +60,14 @@ const App = () => {
 		})
 	}
 
+	const changeVolume = (ev) => {
+		dispatch({
+			type: 'VOLUME',
+			volume: ev.target.value,
+			display: ev.target.value
+		})
+	}
+
 	useEffect(() => {
 		document.addEventListener('keydown', handleKeyDown,
 		)
@@ -77,10 +84,7 @@ const App = () => {
 				chosenBank={mode.chosenBank}
 			/>
 			<BlockPads mode={mode} renderDisplay={renderDisplay}/>
-			<div className="volume">
-				<Form.Label style={rangeTextStyles}>Volume</Form.Label>
-				<Form.Range style={rangeStyles}/>
-			</div>
+			<Volume changeVolume={changeVolume}/>
 		</div>
 	);
 }

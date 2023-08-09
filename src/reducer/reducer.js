@@ -1,6 +1,7 @@
 const DISPLAY = 'DISPLAY'
 const TURN_ON = 'TURN_ON'
 const BANK = 'BANK'
+const VOLUME = 'VOLUME'
 
 const modeReducer = (state, action) => {
 	switch (action.type) {
@@ -12,6 +13,9 @@ const modeReducer = (state, action) => {
 		}
 		case DISPLAY: {
 			return Object.assign({}, state, { display: action.display })
+		}
+		case VOLUME: {
+			return Object.assign({}, state, { display: action.display, volume: action.volume })
 		}
 		default: {
 			throw Error('Unknown action: ' + action.type)
